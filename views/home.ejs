@@ -1,0 +1,22 @@
+<%- include('./partials/header'); -%>
+<h1>Hello</h1>
+<p><%= EJShomeStartingContent  %></p>
+
+
+<!-- <% for(let i=0 ; i<pTags.length; i++){ %>
+    <h2><%= pTags[i].title  %></h2>
+    <p><%= pTags[i].content  %></p>
+
+    <%}%> -->   
+
+<% pTags.forEach(item=>{%>
+    <h1><%= item.title  %></h1>
+    <% if(item.content.length > 200){ %>
+        <p><%= item.content.substring(0,200) %>... <a href="/posts/<%= item.title %>" >Read More</a><p>
+            <%  }else{%>
+        <p><%= item.content%><p>
+            <% }%>
+    
+<%})%>
+
+<%- include('./partials/footer'); -%>
